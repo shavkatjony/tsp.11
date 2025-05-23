@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NYC Traveling Salesman Game</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>NYC Pathfinder</h1>
+      <p>Place pins on the map and find the optimal route!</p>
+    </header>
+    
+    <main>
+      <div id="map"></div>
+      
+      <div class="sidebar">
+        <div class="card">
+          <h2>Game Controls</h2>
+          <div class="button-group">
+            <button id="solve-btn" class="btn btn-primary" disabled>
+              <span>Solve Route</span>
+            </button>
+            <button id="reset-btn" class="btn btn-danger" disabled>
+              <span>Reset Pins</span>
+            </button>
+          </div>
+          
+          <div class="info-section">
+            <h3>Stats</h3>
+            <div id="pins-info">Pins: 0</div>
+            <div id="distance-info">Total Distance: 0 miles</div>
+          </div>
+          
+          <div class="import-export">
+            <h3>Save Your Work</h3>
+            <div class="button-group">
+              <button id="export-btn" class="btn btn-secondary" disabled>Export Pins</button>
+              <button id="import-btn" class="btn btn-secondary">Import Pins</button>
+            </div>
+            <input type="file" id="file-input" accept=".json" style="display: none;">
+          </div>
+          
+          <div class="instructions">
+            <h3>How to Play</h3>
+            <ul>
+              <li>Click anywhere on the map to place pins</li>
+              <li>Drag pins to reposition them</li>
+              <li>Use the Solve button to find the optimal route</li>
+              <li>Export your pins to save your progress</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <p>NYC Pathfinder - A Traveling Salesman Problem Game</p>
+    </footer>
+  </div>
+  
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2 id="modal-title">Route Solved!</h2>
+      <p id="modal-message"></p>
+      <div id="modal-details"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/markers.js"></script>
+  <script src="js/tsp.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
